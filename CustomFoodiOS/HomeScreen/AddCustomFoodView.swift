@@ -60,7 +60,7 @@ struct AddCustomFoodView: View {
                 saveCustomFoodButton(with: viewStore)
             }
             .navigationBarTitle(
-                Text(!viewStore.state.isEditMode ? "Add Custom Food" : "Edit Custom Food"), displayMode: .inline)
+                Text(!viewStore.state.isEditMode ? "Add Food" : "Edit Food"), displayMode: .inline)
             .navigationBarItems(leading: Button("Cancel") {
                 viewStore.send(.showFoodForm(false))
             })
@@ -72,7 +72,7 @@ struct AddCustomFoodView: View {
     }
     
     private func saveCustomFoodButton(with viewStore: ViewStore<FoodsState, FoodsAction>) -> some View {
-        Button("Save to Custom Foods") {
+        Button("Save to Foods") {
             if !viewStore.isEditMode {
                 let food = CustomFood(name: viewStore.currentFoodName, carbs: Int(viewStore.currentCarbs) ?? 0)
                 viewStore.send(.addFood(food))

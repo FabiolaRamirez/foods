@@ -10,7 +10,7 @@ import SwiftUI
 internal extension Color {
     
     private static func getColorForBundle(_ color: String) -> Color {
-        return Color(color, bundle: Bundle(identifier: "insulet.CustomFoodiOS")!)
+        return Color(color, bundle: Bundle(identifier: "fabiolaRamirez.CustomFoodiOS")!)
     }
     
   

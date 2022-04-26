@@ -44,7 +44,7 @@ struct CustomFoodsListView: View {
                 NavigationLink(destination: AddCustomFoodView(store: self.store), isActive: viewStore.binding(get: \.isShowingFormScreen, send: FoodsAction.showFoodForm)) { EmptyView() }
                 
             }
-            .navigationTitle("Custom Foods")
+            .navigationTitle("Foods")
             .navigationBarItems(leading: sortButton(with: viewStore), trailing: EditButton())
             .environment(\.editMode, viewStore.binding(get: \.editMode, send: .switchEditMode))
     
@@ -70,7 +70,7 @@ struct CustomFoodsListView: View {
     
     private func messageNodata(with viewStore: ViewStore<FoodsState, FoodsAction>) -> some View {
         VStack {
-            Text("You have not added any foods yet.\nTap Add Custom Food to get started")
+            Text("You have not added any foods yet.")
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.gray)
@@ -80,7 +80,7 @@ struct CustomFoodsListView: View {
     }
     
     private func addViewersButton(with viewStore: ViewStore<FoodsState, FoodsAction>) -> some View {
-        Button("Add Custom Food") {
+        Button("Add Food") {
             viewStore.send(.showAddMode)
         }
         .buttonStyle(AutoPrimaryButtonStyle(disabled: viewStore.editMode == .active))
